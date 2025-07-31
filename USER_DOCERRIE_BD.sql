@@ -1,0 +1,15 @@
+
+CREATE USER usuario_comum WITH PASSWORD '';
+CREATE USER administrador WITH PASSWORD 'pipoca123';
+
+GRANT CONNECT ON DATABASE docerriebd TO usuario_comum;
+GRANT CONNECT ON DATABASE docerriebd TO administrador;
+
+GRANT USAGE ON SCHEMA public TO usuario_comum;
+GRANT USAGE ON SCHEMA public TO administrador;
+
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO usuario_comum;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO usuario_comum;
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO administrador;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL PRIVILEGES ON TABLES TO administrador;
